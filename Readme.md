@@ -12,8 +12,7 @@ After every frame the 10 pins are reset.
 
 
 should have a default score of 0
-should have a default of no names
-should have a default
+should have 2 throws
 
 
 Should be able to enter names into the score card.
