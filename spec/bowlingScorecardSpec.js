@@ -1,9 +1,9 @@
-describe("frame", function() {
+describe("frame", function(round) {
 
-	var scorecard;
+	var frame;
 
 	beforeEach(function() {
-		frame = new Frame();
+		frame = new Frame(1);
 	});
 
 	describe("by default", function() {
@@ -29,6 +29,10 @@ describe("frame", function() {
 			frame.firstBowl(2);
 			frame.secondBowl(2);
 			expect(frame.numberOfBowls).toEqual(2)
+		});
+
+		it("when a 10 is bowled first, there should be an x (strike)", function() {
+			expect(frame.firstBowl(10)).toEqual("X");
 		});
 
 		it("when a 10 is bowled first, a player should not get a second bowl", function() {
@@ -60,6 +64,39 @@ describe("frame", function() {
 
 	});
 
+});
 
+
+describe("scorecard", function() {
+
+	var scorecard;
+
+	beforeEach(function() {
+		scorecard = new Scorecard();
+	});	
+
+	describe("default", function() {
+
+		it("should have a default cumulitive score of 0", function() {
+			expect(scorecard.cumulitiveScore).toEqual(0)
+		});
+
+		it("should have no players to start", function() {
+			expect(scorecard.players).toEqual(0);
+		});
+
+	});
 
 });
+
+
+
+
+
+
+
+
+
+
+
+

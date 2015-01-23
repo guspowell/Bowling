@@ -1,0 +1,100 @@
+@import url('reset.css');
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+[class*='col-'] {
+  padding-right: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+
+.grid {
+	position: fixed;
+	height: 20%;
+	width: 70%;
+	background-color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header {
+	height: 25%;
+	border: 1px solid black;
+}
+
+[class*='col-'] {
+	float: left;
+	height: 100%;
+}
+
+[class*='col-round-'] {
+	width: 7%;
+	background-color: green;
+}
+
+.col-name {
+	width: 19%;
+	background-color: red;
+}
+
+.col-score {
+	width: 11%;
+	background-color: blue;
+}
+
+.name1 {
+	height: 75%;
+}
+
+.col-name1 {
+	width: 19%;
+	background-color: red;
+	border: 0 1px 1px 1px solid black;
+}
+
+.col-score1 {
+	width: 11%;
+	background-color: blue;
+}
+
+[class*='col-name1-'] {
+	width: 7%;
+	background-color: orange;
+}
+
+
+table {
+	position: fixed;
+	height: 20%;
+	width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
