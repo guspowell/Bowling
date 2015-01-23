@@ -18,18 +18,17 @@ describe("frame", function() {
 
 	});
 
-	describe("number of bowls", function() {
+	describe("bowls", function() {
 
 		it("when first bowl is bowled the number of bowls should go up by 1", function() {
-			frame.bowl();
+			frame.firstBowl();
 			expect(frame.numberOfBowls).toEqual(1)
 		});
 
-		it("should have a maximum of 2 bowls", function() {
-			frame.bowl();
-			frame.bowl();
-			frame.bowl();
-			expect(frame.numberOfBowls).toEqual(2);
+		it("when second bowl is bowled the number of bowls should go up by 1", function() {
+			frame.firstBowl();
+			frame.secondBowl();
+			expect(frame.numberOfBowls).toEqual(2)
 		});
 
 	});
@@ -37,17 +36,20 @@ describe("frame", function() {
 	describe("Scoring", function() {
 
 		it("when the player bowls the first bowl they can log the score", function() {
-			expect(frame.firstScore(5)).toEqual(5);
+			frame.firstBowl(5);
+			expect(frame.firstScore).toEqual(5);
 		});
 
 		it("when the player bowls the second bowl they can log the score", function() {
-			expect(frame.secondScore(3)).toEqual(3);
+			frame.secondBowl(3);
+			expect(frame.secondScore).toEqual(3);
 		});
 
 		it("the total score should increase by the sum of the two bowls", function() {
-			frame.firstScore(3);
-			frame.secondScore(4);
-			expect(frame.frameScore()).toEqual(7);
+			frame.firstBowl(3);
+			frame.secondBowl(4);
+			frame.frameScore();
+			expect(frame.totalScore).toEqual(7);
 		});
 
 	});
