@@ -21,14 +21,20 @@ describe("frame", function() {
 	describe("bowls", function() {
 
 		it("when first bowl is bowled the number of bowls should go up by 1", function() {
-			frame.firstBowl();
+			frame.firstBowl(2);
 			expect(frame.numberOfBowls).toEqual(1)
 		});
 
 		it("when second bowl is bowled the number of bowls should go up by 1", function() {
-			frame.firstBowl();
-			frame.secondBowl();
+			frame.firstBowl(2);
+			frame.secondBowl(2);
 			expect(frame.numberOfBowls).toEqual(2)
+		});
+
+		it("when a 10 is bowled first, a player should not get a second bowl", function() {
+			frame.firstBowl(10);
+			expect(frame.secondBowl(5)).toEqual("cannot bowl after a spare");
+			expect(frame.totalScore).toEqual(10)
 		});
 
 	});
