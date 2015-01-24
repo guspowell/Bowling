@@ -16,6 +16,19 @@ describe("frame", function(round) {
 			expect(frame.numberOfBowls).toEqual(0);
 		});
 
+		it("should be on frame 1", function() {
+			expect(frame.currentFrame).toEqual(1);
+		});
+
+	});
+
+	describe("frames", function() {
+
+		it("should be able to move to the next frame", function() {
+			frame.nextFrame();
+			expect(frame.currentFrame).toEqual(2);
+		});
+
 	});
 
 	describe("bowls", function() {

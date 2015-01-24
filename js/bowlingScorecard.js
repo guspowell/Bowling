@@ -3,6 +3,7 @@ var Frame = function(round) {
 	this.numberOfBowls = 0;
 	this.firstScore = 0;
 	this.secondScore = 0;
+	this.currentFrame = 1;
 };
 
 Frame.prototype.firstBowl = function(pins) {
@@ -23,6 +24,10 @@ Frame.prototype.secondBowl = function(pins) {
 	} else {
 		return "cannot bowl after a spare";
 	}
+};
+
+Frame.prototype.nextFrame = function() {
+	this.currentFrame += 1;
 };
 
 Frame.prototype.frameScore = function() {
