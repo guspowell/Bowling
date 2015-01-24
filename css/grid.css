@@ -16,8 +16,8 @@ body {
 }
 
 .container {
-	height: 25%;
-	width: 100%;
+	height: 15%;
+	width: 90%;
 	border: 1px solid black;
 }
 
@@ -55,26 +55,24 @@ body {
 .col-2-12 {
   width: 15%;
   text-align: left;
-  background-color: green;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
 }
 .col-8-12 {
   height: 100%;
   width: 70%;
-  background-color: orange;
 }
 
 .col-2-12 {
   height: 100%;
   width: 15%;
-  background-color: red;
 }
 
 .col-12-12 {
 	height: 100%;
 	width: 10%;
-	background-color: green;
+	border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 [class*='name1-'] {
@@ -93,24 +91,21 @@ body {
 .name1-2-12 {
   width: 15%;
   text-align: left;
-  background-color: green;
+  border-right: 1px solid black;
 }
 .name1-8-12 {
   height: 100%;
   width: 70%;
-  background-color: orange;
 }
 
 .name1-2-12 {
   height: 100%;
   width: 15%;
-  background-color: red;
 }
 
 .name1-12-12 {
 	height: 100%;
 	width: 10%;
-	background-color: green;
 }
 
 .first-bowl {
@@ -118,7 +113,7 @@ body {
 	height: 50%;
 	width: 50%;
 	float: left;
-	background-color: orange;
+	border-right: 1px solid black;
 }
 
 .second-bowl {
@@ -126,15 +121,16 @@ body {
 	height: 50%;
 	width: 50%;
 	float: left;
-	background-color: blue;
+	border-right: 1px solid black;
 }
 
 .round-score {
 	height: 50%;
 	width: 100%;
-	background-color: purple;
 	float: left;
 	text-align: right;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
 }
 
 
