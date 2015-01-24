@@ -1,4 +1,5 @@
 @import url('reset.css');
+@import url('stylesheet.css');
 
 html {
 	height: 100%;
@@ -10,91 +11,134 @@ body {
 
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-[class*='col-'] {
-  padding-right: 20px;
-}
-[class*='col-']:last-of-type {
-  padding-right: 0;
+.container {
+	height: 25%;
+	width: 100%;
+	border: 1px solid black;
 }
 
 .grid {
-	position: fixed;
-	height: 20%;
-	width: 70%;
-	background-color: black;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
 }
 
+.grid2 {
+  width: 100%;
+  height: 50%;
+}
+
+[class*='col-'] {
+  float: left;
+}
+
+/*  CLEARFIX  */
+/*```````````*/
 .grid:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.header {
-	height: 25%;
-	border: 1px solid black;
-}
-
+/*  GUTTERS   */
+/*```````````*/
 [class*='col-'] {
-	float: left;
-	height: 100%;
+/*  padding-right: 20px;*/
 }
 
-[class*='col-round-'] {
-	width: 7%;
+
+/*   WIDTHS   */
+/*```````````*/
+.col-2-12 {
+  width: 15%;
+  text-align: left;
+  background-color: green;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.col-8-12 {
+  height: 100%;
+  width: 70%;
+  background-color: orange;
+}
+
+.col-2-12 {
+  height: 100%;
+  width: 15%;
+  background-color: red;
+}
+
+.col-12-12 {
+	height: 100%;
+	width: 10%;
 	background-color: green;
 }
 
-.col-name {
-	width: 19%;
-	background-color: red;
+[class*='name1-'] {
+  float: left;
 }
 
-.col-score {
-	width: 11%;
-	background-color: blue;
+/*  GUTTERS   */
+/*```````````*/
+[class*='col-'] {
+/*  padding-right: 20px;*/
 }
 
-.name1 {
-	height: 75%;
+
+/*   WIDTHS   */
+/*```````````*/
+.name1-2-12 {
+  width: 15%;
+  text-align: left;
+  background-color: green;
+}
+.name1-8-12 {
+  height: 100%;
+  width: 70%;
+  background-color: orange;
 }
 
-.col-name1 {
-	width: 19%;
-	background-color: red;
-	border: 0 1px 1px 1px solid black;
+.name1-2-12 {
+  height: 100%;
+  width: 15%;
+  background-color: red;
 }
 
-.col-score1 {
-	width: 11%;
-	background-color: blue;
+.name1-12-12 {
+	height: 100%;
+	width: 10%;
+	background-color: green;
 }
 
-[class*='col-name1-'] {
-	width: 7%;
+.first-bowl {
+	text-align: center;
+	height: 50%;
+	width: 50%;
+	float: left;
 	background-color: orange;
 }
 
-
-table {
-	position: fixed;
-	height: 20%;
-	width: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.second-bowl {
+	text-align: center;
+	height: 50%;
+	width: 50%;
+	float: left;
+	background-color: blue;
 }
+
+.round-score {
+	height: 50%;
+	width: 100%;
+	background-color: purple;
+	float: left;
+	text-align: right;
+}
+
+
+
+
+
 
