@@ -30,18 +30,20 @@ Frame.prototype.frameScore = function() {
 };
 
 
-
 var Scorecard = function() {
 	this.cumulitiveScore = 0;
 	this.players = 0;
-	// first = new Frame(1);
-	// second = new Frame(2);
-	// third = new Frame(3);
-	// fourth = new Frame(4);
-	// fifth = new Frame(5);
-	// sixth = new Frame(6);
-	// seventh = new Frame(7);
-	// eighth = new Frame(8);
-	// ninth = new Frame(9);
-	// tenth = new Frame(10);
+	this.playerList = [];
 };
+
+Scorecard.prototype.addPlayer = function(name) {
+	this.players += 1;
+	this.playerList.push(name);
+};
+
+
+
+
+
+
+

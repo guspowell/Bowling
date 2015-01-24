@@ -87,6 +87,17 @@ describe("scorecard", function() {
 
 	});
 
+	describe("names", function() {
+		
+		it("should be able to add a player", function() {
+			scorecard.addPlayer('gus');
+			expect(scorecard.players).toEqual(1);
+			array = scorecard.playerList;
+			expect(array[0]).toEqual('gus');
+		});
+
+	});
+
 });
 
 
