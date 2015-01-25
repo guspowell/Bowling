@@ -12,8 +12,8 @@ describe("frame", function(round) {
 			expect(frame.totalScore).toEqual(0);
 		});
 		
-		it("should have 0 throws", function() {
-			expect(frame.numberOfBowls).toEqual(0);
+		it("should have 2 throws", function() {
+			expect(frame.bowlsLeft).toEqual(2);
 		});
 
 		it("should be on frame 1", function() {
@@ -33,25 +33,33 @@ describe("frame", function(round) {
 
 	describe("bowls", function() {
 
-		it("when first bowl is bowled the number of bowls should go up by 1", function() {
+		it("when first bowl is bowled the number of bowls should go down by 1", function() {
 			frame.firstBowl(2);
-			expect(frame.numberOfBowls).toEqual(1)
+			expect(frame.bowlsLeft).toEqual(1);
 		});
 
-		it("when second bowl is bowled the number of bowls should go up by 1", function() {
+		it("when second bowl is bowled the number of bowls should go down by 1", function() {
 			frame.firstBowl(2);
 			frame.secondBowl(2);
-			expect(frame.numberOfBowls).toEqual(2)
+			expect(frame.bowlsLeft).toEqual(0);
 		});
 
-		it("when a 10 is bowled first, there should be an x (strike)", function() {
-			expect(frame.firstBowl(10)).toEqual("X");
-		});
+		// it("when a 10 is bowled first, there should be a strike", function() {
+		// 	frame.firstBowl(10);
+		// 	expect(frame.bowlsLeft).toEqual(0);
+		// 	expect(this.pinsLeft).toEqual(0);
+		// });
 
 		it("when a 10 is bowled first, a player should not get a second bowl", function() {
 			frame.firstBowl(10);
-			expect(frame.secondBowl(5)).toEqual("cannot bowl after a spare");
+			expect(frame.secondBowl(5)).toThrowError("cannot bowl after a strike");
 			expect(frame.totalScore).toEqual(10)
+		});
+
+		it("should move to the second frame if a strike is bowled first", function() {
+			expect(frame.currentFrame).toEqual(1)
+			frame.firstBowl(10);
+			expect(frame.currentFrame).toEqual(2)
 		});
 
 	});
@@ -61,11 +69,14 @@ describe("frame", function(round) {
 		it("when the player bowls the first bowl they can log the score", function() {
 			frame.firstBowl(5);
 			expect(frame.firstScore).toEqual(5);
+			expect(frame.pinsLeft).toEqual(5);
 		});
 
 		it("when the player bowls the second bowl they can log the score", function() {
+			frame.firstBowl(1);
 			frame.secondBowl(3);
 			expect(frame.secondScore).toEqual(3);
+			expect(frame.pinsLeft).toEqual(6);
 		});
 
 		it("the total score should increase by the sum of the two bowls", function() {
@@ -73,6 +84,23 @@ describe("frame", function(round) {
 			frame.secondBowl(4);
 			frame.frameScore();
 			expect(frame.totalScore).toEqual(7);
+		});
+
+	});
+
+	describe("strike", function() {
+
+		it("knock 10 pins on first bowl", function() {
+			frame.isAStrike();
+			expect(frame.totalScore).toEqual(10);
+		});
+
+	});
+
+	describe("spare", function() {
+
+		it("knocks down all pins on the second bowl", function() {
+
 		});
 
 	});
@@ -96,6 +124,10 @@ describe("scorecard", function() {
 
 		it("should have no players to start", function() {
 			expect(scorecard.players).toEqual(0);
+		});
+
+		it("", function() {
+			
 		});
 
 	});

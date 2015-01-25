@@ -1,29 +1,42 @@
 var Frame = function(round) {
 	this.totalScore = 0;
-	this.numberOfBowls = 0;
+	this.bowlsLeft = 2;
 	this.firstScore = 0;
 	this.secondScore = 0;
-	this.currentFrame = 1;
+	this.pinsLeft = 10;
+	this.currentFrame = round;
 };
 
 Frame.prototype.firstBowl = function(pins) {
-	if (this.numberOfBowls <= 2) { this.numberOfBowls += 1; }
-	this.firstScore = pins
-	if (pins == 10) {
-		this.totalScore = 10;
-		return "X";
+	if (pins < 10) {
+		this.bowlsLeft -= 1;
+		this.firstScore = pins;
+		this.pinsLeft = this.pinsLeft - pins;
+	}
+	else {
+		this.isAStrike();
 	}
 };
 
 Frame.prototype.secondBowl = function(pins) {
 	if (this.firstScore < 10) {
-		if (this.numberOfBowls <= 2) {
-			this.numberOfBowls += 1;
-			this.secondScore = pins;
-		}
-	} else {
-		return "cannot bowl after a spare";
+		this.bowlsLeft -= 1;
+		this.secondScore = pins;
+		this.pinsLeft = this.pinsLeft - pins
+		this.nextFrame();
 	}
+	else {
+		throw Error('cannot bowl after a strike');
+	}
+};
+
+Frame.prototype.isAStrike = function() {
+	this.firstScore = 'X'
+	this.secondScore = '-'
+	this.totalScore = 10;
+	this.bowlsLeft = 0;
+	this.pinsLeft = 0;
+	this.nextFrame();
 };
 
 Frame.prototype.nextFrame = function() {
@@ -39,6 +52,8 @@ var Scorecard = function() {
 	this.cumulitiveScore = 0;
 	this.players = 0;
 	this.playerList = [];
+	var frame1 = new Frame(1);
+	var frame2 = new Frame(2);
 };
 
 Scorecard.prototype.addPlayer = function(name) {
