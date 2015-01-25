@@ -39,6 +39,16 @@ Frame.prototype.isAStrike = function() {
 	this.nextFrame();
 };
 
+Frame.prototype.isASpare = function(pins) {
+	this.firstScore = pins
+	this.secondScore = 10 - pins
+	this.totalScore = 10;
+	this.bowlsLeft = 0;
+	this.pinsLeft = 0;
+	this.nextFrame();
+};
+
+
 Frame.prototype.nextFrame = function() {
 	this.currentFrame += 1;
 };
@@ -52,8 +62,7 @@ var Scorecard = function() {
 	this.cumulitiveScore = 0;
 	this.players = 0;
 	this.playerList = [];
-	var frame1 = new Frame(1);
-	var frame2 = new Frame(2);
+	this.frames = [ new Frame(1), new Frame(2), new frame(3) ];
 };
 
 Scorecard.prototype.addPlayer = function(name) {
