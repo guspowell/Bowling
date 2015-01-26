@@ -52,7 +52,7 @@ describe("frame", function(round) {
 
 		it("when a 10 is bowled first, a player should not get a second bowl", function() {
 			frame.firstBowl(10);
-			expect(frame.secondBowl(5)).toThrowError("cannot bowl after a strike");
+			expect(function() { frame.secondBowl(5) }).toThrowError("cannot bowl after a strike");
 			expect(frame.totalScore).toEqual(10)
 		});
 
@@ -60,6 +60,19 @@ describe("frame", function(round) {
 			expect(frame.currentFrame).toEqual(1)
 			frame.firstBowl(10);
 			expect(frame.currentFrame).toEqual(2)
+		});
+
+		it("should not be able to hit more than 10 pins on first bowl", function() {
+			expect( function(){ frame.firstBowl(11) }).toThrowError('There are only 10 pins');
+		});
+
+		it("should not be able to hit more than 10 pins on second bowl", function() {
+			frame.firstBowl(10);
+			expect( function(){ frame.secondBowl(11) }).toThrowError('There are only 10 pins');
+		});
+
+		it("should not be able to bowl second bowl unless first bowl has been bowled", function() {
+			expect( function(){ frame.secondBowl(8) }).toThrowError('You have not bowled your first bowl');
 		});
 
 	});
@@ -126,8 +139,8 @@ describe("scorecard", function() {
 			expect(scorecard.players).toEqual(0);
 		});
 
-		it("", function() {
-			
+		it("should have ten frames", function() {
+
 		});
 
 	});
@@ -142,6 +155,14 @@ describe("scorecard", function() {
 		});
 
 	});
+
+	// describe("play", function() {
+
+	// 	it("should be able to play", function() {
+
+	// 	});
+
+	// });
 
 });
 
