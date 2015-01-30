@@ -1,6 +1,6 @@
 describe("frame", function(round) {
 
-	var frame;
+	var newFrame;
 
 	beforeEach(function() {
 		frame = new Frame(1);
@@ -11,7 +11,7 @@ describe("frame", function(round) {
 		it("should have a score of 0", function() {
 			expect(frame.totalScore).toEqual(0);
 		});
-		
+
 		it("should have 2 throws", function() {
 			expect(frame.bowlsLeft).toEqual(2);
 		});
@@ -26,7 +26,9 @@ describe("frame", function(round) {
 
 		it("should be able to move to the next frame", function() {
 			frame.nextFrame();
-			expect(frame.currentFrame).toEqual(2);
+			var newFrame = frame.nextFrame;
+			console.log(newFrame);
+			expect(newFrame.currentFrame).toEqual(2);
 		});
 
 	});
@@ -112,9 +114,10 @@ describe("frame", function(round) {
 
 	describe("spare", function() {
 
-		it("knocks down all pins on the second bowl", function() {
-
-		});
+		// it("knocks down all pins on the second bowl", function() {
+		// 	frame.firstBowl(3);
+		// 	frame.this.
+		// });
 
 	});
 
@@ -127,7 +130,7 @@ describe("scorecard", function() {
 
 	beforeEach(function() {
 		scorecard = new Scorecard();
-	});	
+	});
 
 	describe("default", function() {
 
@@ -146,7 +149,7 @@ describe("scorecard", function() {
 	});
 
 	describe("names", function() {
-		
+
 		it("should be able to add a player", function() {
 			scorecard.addPlayer('gus');
 			expect(scorecard.players).toEqual(1);
@@ -165,15 +168,3 @@ describe("scorecard", function() {
 	// });
 
 });
-
-
-
-
-
-
-
-
-
-
-
-

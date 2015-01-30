@@ -16,6 +16,7 @@ Frame.prototype.firstBowl = function(pins) {
 	}
 	else {
 		this.isAStrike();
+		this.nextFrame();
 	}
 };
 
@@ -78,11 +79,3 @@ Scorecard.prototype.addPlayer = function(name) {
 	this.players += 1;
 	this.playerList.push(name);
 };
-
-
-
-
-
-
-
-
