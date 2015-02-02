@@ -16,7 +16,6 @@ Frame.prototype.firstBowl = function(pins) {
 	}
 	else {
 		this.isAStrike();
-		this.nextFrame();
 	}
 };
 
@@ -58,11 +57,6 @@ Frame.prototype.isASpare = function() {
 	console.log('/');
 };
 
-
-Frame.prototype.nextFrame = function() {
-	new Frame(this.currentFrame + 1);
-};
-
 Frame.prototype.frameScore = function() {
 	this.totalScore = this.firstScore + this.secondScore;
 };
@@ -72,7 +66,10 @@ var Scorecard = function() {
 	this.cumulitiveScore = 0;
 	this.players = 0;
 	this.playerList = [];
-	this.scorecardFrames = [ new Frame(1), new Frame(2), new Frame(3) ];
+	this.frames = [];
+	for( var i = 1; i===10; i+=1) {
+		frames.push(new Frame(i));
+	};
 };
 
 Scorecard.prototype.addPlayer = function(name) {

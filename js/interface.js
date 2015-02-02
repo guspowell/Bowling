@@ -1,8 +1,13 @@
-var frame = new Frame();
-var scorecard = new scorecard();
+var scorecard = new Scorecard();
+var frame = scorecard.frames[0];
 
-$('form.name').on('submit', function(name) {
-	name.preventDefault();
+$( function() {
+
+	$('.first-bowl').change(function() {
+		frame.firstBowl(
+			$(this).val();
+		);
+	});
 	
 });
 
